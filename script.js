@@ -2,14 +2,27 @@
 function Bobify() {
     var verb = document.getElementById('input').value
     var root = document.getElementById('inputroot').value
+
     
-    if(verb.length == 3 && root.length > 0){
+    
+    if(verb.length == 3){
+
+        
+
         document.getElementById("theTable").style.display = "block";
         var faolFeel = verb[0]
         var ainolFeel = verb[1]
         var laolFeel = verb[2]
-        
-        console.log(root);
+
+        let rows = document.querySelectorAll(".rowstr");
+
+        for (let i = 0; i < rows.length; i++) {
+        	rows[i].style.display = "none"
+        }
+
+        // document.getElementsByClassName("rowstr").forEach(row => {
+        //     row.style.display = "none"
+        // });
         let estefAlVerb = estefAl(faolFeel, ainolFeel, laolFeel)
 
         document.getElementById("feelMazi-estefAl").innerText = estefAlVerb[0]
@@ -66,7 +79,9 @@ function Bobify() {
         document.getElementById("feelAmr-efAl").innerText = efAlVerb[2]
         document.getElementById("feelMasdar-efAl").innerText = efAlVerb[3]
 
+        
         document.getElementById(root.toString()).style.display = "table-row"
+        
 
         function estefAl(faolFeel, ainolFeel, laolFeel) {
             //FaOlFeel
